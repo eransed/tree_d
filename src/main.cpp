@@ -1,60 +1,58 @@
-
 #include "../include/util.hpp"
-//#include "llutil.hpp"
 
 void sortTest();
 void sortTest2(int N);
 
 int main(int argc, char* argv[]) {
+
+    ScopedTimer mainTimer("Time in main function", true);
     
-        ScopedTimer mainTimer("Time in main function", true);
-        
-        std::cout << "__TIME__ = " << __TIME__ << std::endl;
+    std::cout << "__TIME__ = " << __TIME__ << std::endl;
 
-        int N = 1000000 ;
+    int N = 1000000 ;
 
-        std::cout << (double)sizeof (int) * N / (1024 * 1024) << " mb" << std::endl;
-        std::cout << "N = " << N << std::endl;
+    std::cout << (double)sizeof (int) * N / (1024 * 1024) << " mb" << std::endl;
+    std::cout << "N = " << N << std::endl;
 
-        sortTest2(N);
-        logn("");
+    sortTest2(N);
+    logn("");
 
-        int *a = new int [N];
+    int *a = new int [N];
 
-        {
-            ScopedTimer t("Linear heap time :", true);
-            for (int i = 0; i < N; i++) {
+    {
+        ScopedTimer t("Linear heap time :", true);
+        for (int i = 0; i < N; i++) {
 
-                a[i] = i;
-                if (a[i] == 45743){
-                    std::cout << "if " << a[i] << std::endl;
-                }
-
+            a[i] = i;
+            if (a[i] == 45743){
+                std::cout << "if " << a[i] << std::endl;
             }
+
         }
+    }
 
-        delete[] a;
+    delete[] a;
 
-        logn("");
+    logn("");
 
-        // int b[N];
+    // int b[N];
 
-        // {
-        //     ScopedTimer t("Linear stack time :", true);
-        //     for (int i = 0; i < N; i++) {
+    // {
+    //     ScopedTimer t("Linear stack time :", true);
+    //     for (int i = 0; i < N; i++) {
 
-        //         b[i] = i;
-        //         if (b[i] == 45743){
-        //             std::cout << "if " << b[i] << std::endl;
-        //         }
+    //         b[i] = i;
+    //         if (b[i] == 45743){
+    //             std::cout << "if " << b[i] << std::endl;
+    //         }
 
-        //     }
-        // }
+    //     }
+    // }
 
-        logn("");
+    logn("");
 
-    
-    
+
+
     return 0;
 }
 

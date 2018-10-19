@@ -1,4 +1,3 @@
-
 #include "../include/util.hpp"
 
 long long ScopedTimer::calculateDuration_us() {
